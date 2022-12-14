@@ -1,0 +1,25 @@
+version: "3.9"  
+services:
+  mongodb-service:
+    image: localhost:5001/mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongovolume:/mongodb 
+    container_name: mongodb-service   
+  backend:
+    image: localhost:5001/backend
+    ports:
+      - "5000:5000"
+    container_name: backend 
+  frontend:
+    image: localhost:5001/frontend
+    ports:
+      - "3000:80"
+    container_name: frontend 
+      
+volumes:
+  mongovolume: 
+
+
+  
